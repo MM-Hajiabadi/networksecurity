@@ -1,6 +1,7 @@
 import os
 import sys
 import mlflow
+import dagshub
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
 from networksecurity.entity.artifact_entity import DataTransformationArtifacts, ModelTrainerArtifact
@@ -18,7 +19,13 @@ from sklearn.ensemble import (
     GradientBoostingClassifier,
     RandomForestClassifier,
 )
+from dotenv import load_dotenv
+load_dotenv()
 
+REPO_OWNER = os.getenv("REPO_OWNER")
+REPO_NAME = os.getenv("REPO_NAME")
+
+dagshub.init(repo_owner= REPO_OWNER, repo_name=REPO_NAME, mlflow=True)
 
 class ModelTrainer:
 

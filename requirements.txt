@@ -8,5 +8,6 @@ sckit-learn
 dill
 pyyaml
 mlflow
+dagshub
 
 #-e .
