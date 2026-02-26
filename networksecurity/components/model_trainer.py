@@ -4,7 +4,7 @@ import mlflow
 import dagshub
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
-from networksecurity.entity.artifact_entity import DataTransformationArtifacts, ModelTrainerArtifact
+from networksecurity.entity.artifact_entity import DataTransformationArtifact, ModelTrainerArtifact
 from networksecurity.entity.config_entity import ModelTrainerConfig
 from networksecurity.utils.ml_utils.model.estimator import NetworkModel
 from networksecurity.utils.main_utils.utils import save_object, load_object
@@ -29,7 +29,7 @@ dagshub.init(repo_owner= REPO_OWNER, repo_name=REPO_NAME, mlflow=True)
 
 class ModelTrainer:
 
-    def __init__(self, model_trainer_config:ModelTrainerConfig, data_transformation_artifact:DataTransformationArtifacts):
+    def __init__(self, model_trainer_config:ModelTrainerConfig, data_transformation_artifact:DataTransformationArtifact):
         try:
             self.model_trainer_config = model_trainer_config
             self.data_transformation_artifact = data_transformation_artifact

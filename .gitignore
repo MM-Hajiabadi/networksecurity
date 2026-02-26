@@ -8,3 +8,5 @@ __pycache__/
 logs/
 Artifacts/
 mlruns/
+test_mongodb.py
+main.py

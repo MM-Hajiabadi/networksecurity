@@ -1,4 +1,4 @@
-from networksecurity.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifacts
+from networksecurity.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact
 from networksecurity.entity.config_entity import DataValidationConfig
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
@@ -67,7 +67,7 @@ class DataValidation:
             raise NetworkSecurityException(e,sys)   
 
 
-    def initiate_data_validation(self)-> DataValidationArtifacts:
+    def initiate_data_validation(self)-> DataValidationArtifact:
         try:
             train_file_path = self.data_ingestion_artifact.trained_file_path
             test_file_path = self.data_ingestion_artifact.test_file_path
@@ -95,7 +95,7 @@ class DataValidation:
                 self.data_validation_config.valid_test_file_path, index = False, header=True
             )
 
-            data_validation_artifact = DataValidationArtifacts(
+            data_validation_artifact = DataValidationArtifact(
                 validation_status=status,
                 valid_train_file_path=self.data_ingestion_artifact.trained_file_path,
                 valid_test_file_path=self.data_ingestion_artifact.test_file_path,

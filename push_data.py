@@ -7,6 +7,7 @@ import numpy as np
 import pymongo
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
+from networksecurity.constant.training_pipeline import DATA_INGESTION_DATABASE_NAME, DATA_INGESTION_COLLECTION_NAME
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -49,9 +50,10 @@ class NetworkDataExtract():
             raise NetworkSecurityException(e, sys)
 
 if __name__=='__main__':
+    
     FILE_PATH = "Network_Data/phishingData.csv"
-    DATABASE = "MMHJAI"
-    Collection = "NetworkData"
+    DATABASE = DATA_INGESTION_DATABASE_NAME
+    Collection = DATA_INGESTION_COLLECTION_NAME
     networkobj = NetworkDataExtract()
     records = networkobj.csv_to_json_convertor(file_path=FILE_PATH)
     print(records)
