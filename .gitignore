@@ -10,3 +10,4 @@ Artifacts/
 mlruns/
 test_mongodb.py
 main.py
+final_model/
